@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website.homepage" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
+
+    <record id="page_home" model="website.page">
+        <field name="name">Home</field>
+        <field name="is_published" eval="True" />
+        <field name="key">website_lucien.page_home</field>
+        <field name="url">/</field>
+        <field name="website_id" eval="1" />
+        <field name="type">qweb</field>
+        <field name="arch" type="xml">
+            <t name="Home" t-name="website_lucien.page_home">
+                <t t-call="website.layout">
+                    <t t-set="pageName" t-value="'page-home'" />
+                    <div id="wrap" class="oe_structure">
+                        <div id="c"/>
+                        <script async="async" src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+                        <script type="importmap">
+			{
+				"imports": {
+					"three": "/website_three/static/lib/three.module.js",
+					"three/addons/": "/website_three/static/lib/jsm/"
+				}
+			}
+                        </script>
+
+                        <script type="module">
+			import * as THREE from 'three';
+			import { ColladaLoader } from 'three/addons/loaders/ColladaLoader.js';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            window.THREE = THREE;
+            window.ColladaLoader = ColladaLoader;
+            window.OrbitControls = OrbitControls;
+            
+                        </script>
+
+
+                  
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+</odoo>
